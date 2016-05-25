@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MZPopView_Example' do
+  pod 'MZPopView', :path => '../'
+
+  target 'MZPopView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
