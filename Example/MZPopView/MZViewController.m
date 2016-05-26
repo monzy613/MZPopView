@@ -67,18 +67,18 @@
     ball.center = CGPointMake(100, 100);
 
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [firstButton setTitle:@"First" forState:UIControlStateNormal];
+    [firstButton setTitle:@"chat" forState:UIControlStateNormal];
+    //firstButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [firstButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
     [firstButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
     UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [secondButton setTitle:@"Second" forState:UIControlStateNormal];
+//    [secondButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+//    secondButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [secondButton setTitle:@"camera" forState:UIControlStateNormal];
     [secondButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
-    UIButton *thirdButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [thirdButton setTitle:@"Third" forState:UIControlStateNormal];
-    [thirdButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
-    self.popView.buttons = @[firstButton, secondButton, thirdButton];
+    self.popView.buttons = @[firstButton, secondButton];
 
     [self.view addSubview:ball];
     [self.view addSubview:self.popView];
