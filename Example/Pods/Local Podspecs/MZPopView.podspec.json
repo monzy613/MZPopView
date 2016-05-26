@@ -1,9 +1,9 @@
 {
   "name": "MZPopView",
   "version": "0.1.0",
-  "summary": "A short description of MZPopView.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/MZPopView",
+  "summary": "a little pop view",
+  "description": "a little popview can pop from point in four directions",
+  "homepage": "https://github.com/monzy613/MZPopView",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "monzy613": "monzy613@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/MZPopView.git",
+    "git": "https://github.com/monzy613/MZPopView.git",
     "tag": "0.1.0"
   },
   "platforms": {

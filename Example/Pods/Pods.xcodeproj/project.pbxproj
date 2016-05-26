@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		17842E47590D88C76902962581224AE1 /* Pods-MZPopView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B683E3ADD19C233A8A8FA387B8AEDD06 /* Pods-MZPopView_Example-dummy.m */; };
 		2977D49683CD681F261749B99772A9A5 /* Pods-MZPopView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A6642319EC3621CD37D789CC36EA048C /* Pods-MZPopView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		36D762A45592608B0F116AE7E51CF1C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		2A2A68F28E930FC6231AF293DDB82B81 /* MZPopView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4FE0D44044DC4AA3C317C92E1A942A /* MZPopView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39EC91DD83E4651371ED109511C25FEC /* Pods-MZPopView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B114C17D0E85496A92BE0C7DA7D40AA2 /* Pods-MZPopView_Tests-dummy.m */; };
+		3C087612DBDB976A14CC5B60CCFD6F83 /* MZPopButtonGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDF7DD82A8DEAE5C827496DD42200AE /* MZPopButtonGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		435A5EDF27FF984AF76AFEA33B5213E0 /* Pods-MZPopView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DDF72829168735DA8A971F9AAF5F3474 /* Pods-MZPopView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66831AFECDB44BE31EC74140659C7091 /* MZPopLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 159FA6AB60413D546A174FE635D00745 /* MZPopLabel.m */; };
+		6CA3412374A300FF91E6BBF516F9407C /* MZPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EA93C83F73AEAA82A06D1DD83F74D8 /* MZPopView.m */; };
+		6D3145DB5DF461D960CE6FA68598854D /* MZPopView.h in Headers */ = {isa = PBXBuildFile; fileRef = AEBEF1ADF48041EBF74B999ABE9FCFAD /* MZPopView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75C6F3A57B794DE28FB12C9A214FD299 /* MZPopButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C1296641941BA56FEC7D602BDE7F6835 /* MZPopButtonGroup.m */; };
 		79A9D96A78C8D1B9C14DA1CE0422F08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		99FB2AC5B0EC6DADE7FDBB204C275D99 /* MZPopView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4FE0D44044DC4AA3C317C92E1A942A /* MZPopView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9EADFDBDE00AD56D7AD671EC7E2E8433 /* MZPopView.h in Headers */ = {isa = PBXBuildFile; fileRef = DB7AD3A25C81988354D207FAA6563F7F /* MZPopView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BD5FF7BFFB245D7E025E3B6F6271646D /* MZPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92887EA4D8E51B730E4AC5BF41D2366E /* MZPopView.m */; };
-		E5D989F0472F6EDAD7873D1E53962077 /* MZPopView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE63696568BCEED0C49DAC08E34E2B1B /* MZPopView-dummy.m */; };
+		A5A733AB38D3B4E88748B6ADA578A219 /* MZPopLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = C67F8138E1EB0A6120C5D8BFDE763F1B /* MZPopLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8C9319140CC21F3F9060F9DF467A86C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		DA0D0A9F4FCFBB2759A9CBD812CF7F29 /* MZPopView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE63696568BCEED0C49DAC08E34E2B1B /* MZPopView-dummy.m */; };
 		FB0E7F427987B75CB431B8D6E797032E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,13 +29,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E686F0F94079612884232DD20CFF6C62;
+			remoteGlobalIDString = C1D71BDE03A71D7545D78BF5AC396145;
 			remoteInfo = MZPopView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		11E34347C5705B93E6EB89E22762901F /* Pods-MZPopView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MZPopView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		159FA6AB60413D546A174FE635D00745 /* MZPopLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MZPopLabel.m; sourceTree = "<group>"; };
 		1E00B7819668CDEDA81640A6270E4058 /* Pods-MZPopView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MZPopView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		209B7F54BED64E3AB3DC856514F51780 /* Pods-MZPopView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MZPopView_Tests-resources.sh"; sourceTree = "<group>"; };
 		416098169A2BD43FCE5C0DC86EEA474E /* Pods-MZPopView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MZPopView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -41,40 +46,35 @@
 		5600CA759FA0E10567D3BC248676F377 /* Pods-MZPopView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MZPopView_Example-resources.sh"; sourceTree = "<group>"; };
 		72E809E3E6B121FC1618ECC86807F6CE /* Pods-MZPopView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MZPopView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		75632A2D11D448DC409DEE7437572C87 /* MZPopView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MZPopView.xcconfig; sourceTree = "<group>"; };
-		92887EA4D8E51B730E4AC5BF41D2366E /* MZPopView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MZPopView.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9BE2E84FE9E2E08DA335177D799AA787 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A63E85320C73A0A1FE63B66F5779EFEB /* MZPopView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MZPopView-prefix.pch"; sourceTree = "<group>"; };
 		A6642319EC3621CD37D789CC36EA048C /* Pods-MZPopView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MZPopView_Example-umbrella.h"; sourceTree = "<group>"; };
+		AEBEF1ADF48041EBF74B999ABE9FCFAD /* MZPopView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MZPopView.h; sourceTree = "<group>"; };
 		B07B90854A261B6B8899AA94AD479246 /* Pods-MZPopView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MZPopView_Tests.modulemap"; sourceTree = "<group>"; };
 		B114C17D0E85496A92BE0C7DA7D40AA2 /* Pods-MZPopView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MZPopView_Tests-dummy.m"; sourceTree = "<group>"; };
 		B1E9CD2D1A517F885B261DB3DFF9D216 /* Pods-MZPopView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MZPopView_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B683E3ADD19C233A8A8FA387B8AEDD06 /* Pods-MZPopView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MZPopView_Example-dummy.m"; sourceTree = "<group>"; };
 		BB4F9E302BFD2DABACABDA2AF06687AF /* Pods_MZPopView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MZPopView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1296641941BA56FEC7D602BDE7F6835 /* MZPopButtonGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MZPopButtonGroup.m; sourceTree = "<group>"; };
 		C3127200BAEA7BFC44737596A5149A8E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C67F8138E1EB0A6120C5D8BFDE763F1B /* MZPopLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MZPopLabel.h; sourceTree = "<group>"; };
 		C702583E398F34AB70C4FB34CA12F88C /* Pods_MZPopView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MZPopView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DB143B238CC50DF4953CFF61D9BAC6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB177C6118479B551FF72AA01F5C4099 /* Pods-MZPopView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MZPopView_Example.modulemap"; sourceTree = "<group>"; };
 		CDAE3E55D6FB6F19AB0B2BD72A357D82 /* MZPopView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MZPopView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DB7AD3A25C81988354D207FAA6563F7F /* MZPopView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MZPopView.h; sourceTree = "<group>"; };
 		DDF72829168735DA8A971F9AAF5F3474 /* Pods-MZPopView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MZPopView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		ED0F3604A47707CB059BD3423E92717A /* Pods-MZPopView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MZPopView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EE63696568BCEED0C49DAC08E34E2B1B /* MZPopView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MZPopView-dummy.m"; sourceTree = "<group>"; };
+		F1EA93C83F73AEAA82A06D1DD83F74D8 /* MZPopView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MZPopView.m; sourceTree = "<group>"; };
 		F1F82FA5392D07606D85DC4DF266E0A4 /* Pods-MZPopView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MZPopView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F297062549547E648D1ECCB6B3B24F33 /* Pods-MZPopView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MZPopView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FA3D7419C60BB2C2631057E186963EE4 /* Pods-MZPopView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MZPopView_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		FCDF7DD82A8DEAE5C827496DD42200AE /* MZPopButtonGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MZPopButtonGroup.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8DF466604077A505D596590372541C4A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				36D762A45592608B0F116AE7E51CF1C5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C511988001F24B3E0461C8CEEB06CEA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,18 +91,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F49C81AECC3629C7D75A78D382D32530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C9319140CC21F3F9060F9DF467A86C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B35BCD5C643F077072F3DB78ABA7994 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				DB7AD3A25C81988354D207FAA6563F7F /* MZPopView.h */,
-				92887EA4D8E51B730E4AC5BF41D2366E /* MZPopView.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,12 +154,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A3523E4C6323B64E79683B664C57B248 /* MZPopView */ = {
+		B032CA2978599BF02316F9A25B031D4E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1B35BCD5C643F077072F3DB78ABA7994 /* Classes */,
+				FCDF7DD82A8DEAE5C827496DD42200AE /* MZPopButtonGroup.h */,
+				C1296641941BA56FEC7D602BDE7F6835 /* MZPopButtonGroup.m */,
+				C67F8138E1EB0A6120C5D8BFDE763F1B /* MZPopLabel.h */,
+				159FA6AB60413D546A174FE635D00745 /* MZPopLabel.m */,
+				AEBEF1ADF48041EBF74B999ABE9FCFAD /* MZPopView.h */,
+				F1EA93C83F73AEAA82A06D1DD83F74D8 /* MZPopView.m */,
 			);
-			path = MZPopView;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -171,10 +175,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C2077844ED67E908113D795C34D1B12F /* MZPopView */ = {
+			isa = PBXGroup;
+			children = (
+				B032CA2978599BF02316F9A25B031D4E /* Classes */,
+			);
+			path = MZPopView;
+			sourceTree = "<group>";
+		};
 		D7C1333F21CDACB583DF11AA02626290 /* MZPopView */ = {
 			isa = PBXGroup;
 			children = (
-				A3523E4C6323B64E79683B664C57B248 /* MZPopView */,
+				C2077844ED67E908113D795C34D1B12F /* MZPopView */,
 				78DF6A8809ADCBA4656C589C7CABF96B /* Support Files */,
 			);
 			name = MZPopView;
@@ -236,20 +248,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EA01234FE77B0B05506F2EADE3128DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C087612DBDB976A14CC5B60CCFD6F83 /* MZPopButtonGroup.h in Headers */,
+				A5A733AB38D3B4E88748B6ADA578A219 /* MZPopLabel.h in Headers */,
+				2A2A68F28E930FC6231AF293DDB82B81 /* MZPopView-umbrella.h in Headers */,
+				6D3145DB5DF461D960CE6FA68598854D /* MZPopView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62D5915AB7515DD19BD4BEBB6903DE42 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				435A5EDF27FF984AF76AFEA33B5213E0 /* Pods-MZPopView_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6F890C6C6F61E2CC2F2E9ADD4D09EE51 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99FB2AC5B0EC6DADE7FDBB204C275D99 /* MZPopView-umbrella.h in Headers */,
-				9EADFDBDE00AD56D7AD671EC7E2E8433 /* MZPopView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,13 +305,13 @@
 			productReference = C702583E398F34AB70C4FB34CA12F88C /* Pods_MZPopView_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E686F0F94079612884232DD20CFF6C62 /* MZPopView */ = {
+		C1D71BDE03A71D7545D78BF5AC396145 /* MZPopView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FD108EC810A36728BDE067B428B7B90 /* Build configuration list for PBXNativeTarget "MZPopView" */;
+			buildConfigurationList = 18DD7EE28941F57CD4ADA7936D7E2876 /* Build configuration list for PBXNativeTarget "MZPopView" */;
 			buildPhases = (
-				B7A8F202423F20E7BC9A18DA91E6EC0B /* Sources */,
-				8DF466604077A505D596590372541C4A /* Frameworks */,
-				6F890C6C6F61E2CC2F2E9ADD4D09EE51 /* Headers */,
+				DD3E0C8951B6205CD512F3AD4DDD45B1 /* Sources */,
+				F49C81AECC3629C7D75A78D382D32530 /* Frameworks */,
+				5EA01234FE77B0B05506F2EADE3128DD /* Headers */,
 			);
 			buildRules = (
 			);
@@ -329,7 +343,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E686F0F94079612884232DD20CFF6C62 /* MZPopView */,
+				C1D71BDE03A71D7545D78BF5AC396145 /* MZPopView */,
 				A3216B2DFA517962640424490851BE82 /* Pods-MZPopView_Example */,
 				A4326807E49AE869306638235F0CB711 /* Pods-MZPopView_Tests */,
 			);
@@ -353,12 +367,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B7A8F202423F20E7BC9A18DA91E6EC0B /* Sources */ = {
+		DD3E0C8951B6205CD512F3AD4DDD45B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5D989F0472F6EDAD7873D1E53962077 /* MZPopView-dummy.m in Sources */,
-				BD5FF7BFFB245D7E025E3B6F6271646D /* MZPopView.m in Sources */,
+				75C6F3A57B794DE28FB12C9A214FD299 /* MZPopButtonGroup.m in Sources */,
+				66831AFECDB44BE31EC74140659C7091 /* MZPopLabel.m in Sources */,
+				DA0D0A9F4FCFBB2759A9CBD812CF7F29 /* MZPopView-dummy.m in Sources */,
+				6CA3412374A300FF91E6BBF516F9407C /* MZPopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +384,7 @@
 		C6067477FDEECE6010D2F84DF20E8D0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MZPopView;
-			target = E686F0F94079612884232DD20CFF6C62 /* MZPopView */;
+			target = C1D71BDE03A71D7545D78BF5AC396145 /* MZPopView */;
 			targetProxy = 315FE1D7FA59FB0DD5F07934EF2CFCB0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -445,6 +461,64 @@
 			};
 			name = Debug;
 		};
+		62DC97A342E6AC3461EAA003B5823CC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75632A2D11D448DC409DEE7437572C87 /* MZPopView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MZPopView/MZPopView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MZPopView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MZPopView/MZPopView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MZPopView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6CEB0899C7E155B5667C2039621D7288 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75632A2D11D448DC409DEE7437572C87 /* MZPopView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MZPopView/MZPopView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MZPopView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MZPopView/MZPopView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MZPopView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		90DDAC77B582810662702A91B96463DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 11E34347C5705B93E6EB89E22762901F /* Pods-MZPopView_Example.release.xcconfig */;
@@ -477,64 +551,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		C7E470116E39652966A3154826F9AE66 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75632A2D11D448DC409DEE7437572C87 /* MZPopView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MZPopView/MZPopView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MZPopView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MZPopView/MZPopView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MZPopView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C80FD5156150CF67B85D4DC304764D49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75632A2D11D448DC409DEE7437572C87 /* MZPopView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MZPopView/MZPopView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MZPopView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MZPopView/MZPopView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MZPopView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		CA2249FCA3DB0AAA6B86982B0B77A738 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -647,11 +663,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FD108EC810A36728BDE067B428B7B90 /* Build configuration list for PBXNativeTarget "MZPopView" */ = {
+		18DD7EE28941F57CD4ADA7936D7E2876 /* Build configuration list for PBXNativeTarget "MZPopView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C80FD5156150CF67B85D4DC304764D49 /* Debug */,
-				C7E470116E39652966A3154826F9AE66 /* Release */,
+				62DC97A342E6AC3461EAA003B5823CC8 /* Debug */,
+				6CEB0899C7E155B5667C2039621D7288 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

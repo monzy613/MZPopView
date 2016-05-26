@@ -47,6 +47,13 @@ static NSTimeInterval duration = 0.25;
     return self;
 }
 
+- (void)dealloc
+{
+    if (_contentView) {
+        [_contentView removeObserver:self forKeyPath:@"bounds"];
+    }
+}
+
 #pragma mark - public
 
 - (void)popLeftFromPoint:(CGPoint)point
@@ -58,7 +65,6 @@ static NSTimeInterval duration = 0.25;
     newFrame.origin = CGPointMake(point.x - newFrame.size.width + offset, point.y - newFrame.size.height / 2);
     self.frame = newFrame;
     newFrame.origin.x = point.x - newFrame.size.width;
-
     [self showArrow:self.rightArrow newFrame:newFrame];
 }
 
@@ -114,6 +120,8 @@ static NSTimeInterval duration = 0.25;
         case MZPopViewStatePopDown:
             dismissFrame.origin.y -= offset;
             break;
+        default:
+            return;
     }
 
     [UIView animateWithDuration:duration animations:^{
@@ -122,6 +130,22 @@ static NSTimeInterval duration = 0.25;
     } completion:^(BOOL finished) {
         self.state = MZPopViewStateClosed;
     }];
+}
+
+#pragma mark - kvo
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (object == self.contentView && [keyPath isEqualToString:@"bounds"]) {
+        CGPoint center = self.center;
+        CGRect newFrame = CGRectInset(self.contentView.bounds, -self.defaultInset.left, -self.defaultInset.top);
+        self.contentView.center = CGPointMake(CGRectGetWidth(newFrame) / 2, CGRectGetHeight(newFrame) / 2);
+        self.frame = newFrame;
+        self.center = center;
+        [self resetArrowPosition];
+        [self resetFrame];
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 #pragma mark - private
@@ -143,6 +167,53 @@ static NSTimeInterval duration = 0.25;
     self.downArrow.hidden = YES;
 }
 
+- (void)resetArrowPosition
+{
+    {//left right
+        CGFloat height = defaultWidth;
+        CGFloat width = self.defaultInset.left;
+
+        CGRect lFrame = CGRectMake(0, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
+        _leftArrow.frame = lFrame;
+        CGRect rFrame = CGRectMake(CGRectGetWidth(self.frame) - width, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
+        _rightArrow.frame = rFrame;
+    }
+    {//up down
+        CGFloat height = self.defaultInset.top;
+        CGFloat width = defaultWidth;
+
+        CGRect uFrame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, 0, width, height);
+        _upArrow.frame = uFrame;
+        CGRect dFrame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) - height, width, height);
+        _downArrow.frame = dFrame;
+    }
+}
+
+- (void)resetFrame
+{
+    CGRect newFrame = self.bounds;
+    switch (self.state) {
+        case MZPopViewStatePopLeft:
+            newFrame.origin = CGPointMake(self.sourcePoint.x - newFrame.size.width, self.sourcePoint.y - newFrame.size.height / 2);
+            self.frame = newFrame;
+            break;
+        case MZPopViewStatePopRight:
+            newFrame.origin = CGPointMake(self.sourcePoint.x, self.sourcePoint.y - newFrame.size.height / 2);
+            self.frame = newFrame;
+            break;
+        case MZPopViewStatePopUp:
+            newFrame.origin = CGPointMake(self.sourcePoint.x - newFrame.size.width / 2, self.sourcePoint.y - newFrame.size.height);
+            self.frame = newFrame;
+            break;
+        case MZPopViewStatePopDown:
+            newFrame.origin = CGPointMake(self.sourcePoint.x - newFrame.size.width / 2, self.sourcePoint.y);
+            self.frame = newFrame;
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - setters
 - (void)setColor:(UIColor *)color
 {
@@ -161,7 +232,6 @@ static NSTimeInterval duration = 0.25;
     if (!_leftArrow) {
         CGFloat height = defaultWidth;
         CGFloat width = self.defaultInset.left;
-        CGRect frame = CGRectMake(0, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
         UIBezierPath *path = [UIBezierPath bezierPath];
         [path moveToPoint:CGPointMake(0, height / 2)];
         [path addLineToPoint:CGPointMake(width, 0)];
@@ -170,6 +240,7 @@ static NSTimeInterval duration = 0.25;
         _leftArrow = [CAShapeLayer layer];
         _leftArrow.path = path.CGPath;
         _leftArrow.strokeColor = nil;
+        CGRect frame = CGRectMake(0, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
         _leftArrow.frame = frame;
     }
     return _leftArrow;
@@ -180,7 +251,6 @@ static NSTimeInterval duration = 0.25;
     if (!_rightArrow) {
         CGFloat height = defaultWidth;
         CGFloat width = self.defaultInset.right;
-        CGRect frame = CGRectMake(CGRectGetWidth(self.frame) - width, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
         UIBezierPath *path = [UIBezierPath bezierPath];
         [path moveToPoint:CGPointMake(0, 0)];
         [path addLineToPoint:CGPointMake(width, height / 2)];
@@ -189,6 +259,7 @@ static NSTimeInterval duration = 0.25;
         _rightArrow = [CAShapeLayer layer];
         _rightArrow.path = path.CGPath;
         _rightArrow.strokeColor = nil;
+        CGRect frame = CGRectMake(CGRectGetWidth(self.frame) - width, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
         _rightArrow.frame = frame;
     }
     return _rightArrow;
@@ -199,7 +270,6 @@ static NSTimeInterval duration = 0.25;
     if (!_upArrow) {
         CGFloat height = self.defaultInset.top;
         CGFloat width = defaultWidth;
-        CGRect frame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, 0, width, height);
         UIBezierPath *path = [UIBezierPath bezierPath];
         [path moveToPoint:CGPointMake(0, height)];
         [path addLineToPoint:CGPointMake(width / 2, 0)];
@@ -208,6 +278,7 @@ static NSTimeInterval duration = 0.25;
         _upArrow = [CAShapeLayer layer];
         _upArrow.path = path.CGPath;
         _upArrow.strokeColor = nil;
+        CGRect frame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, 0, width, height);
         _upArrow.frame = frame;
     }
     return _upArrow;
@@ -218,7 +289,6 @@ static NSTimeInterval duration = 0.25;
     if (!_downArrow) {
         CGFloat height = self.defaultInset.bottom;
         CGFloat width = defaultWidth;
-        CGRect frame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) - height, width, height);
         UIBezierPath *path = [UIBezierPath bezierPath];
         [path moveToPoint:CGPointMake(0, 0)];
         [path addLineToPoint:CGPointMake(width / 2, height)];
@@ -227,6 +297,7 @@ static NSTimeInterval duration = 0.25;
         _downArrow = [CAShapeLayer layer];
         _downArrow.path = path.CGPath;
         _downArrow.strokeColor = nil;
+        CGRect frame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) - height, width, height);
         _downArrow.frame = frame;
     }
     return _downArrow;
@@ -236,6 +307,7 @@ static NSTimeInterval duration = 0.25;
 {
     if (!_contentView) {
         _contentView = [[UIView alloc] initWithFrame:CGRectInset(self.bounds, self.defaultInset.left, self.defaultInset.top)];
+        [_contentView addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
         _contentView.layer.cornerRadius = 4.0;
     }
     return _contentView;

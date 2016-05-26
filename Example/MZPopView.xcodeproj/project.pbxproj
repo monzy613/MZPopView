@@ -66,6 +66,7 @@
 		BA9A116AD58E90E87772243E /* Pods-MZPopView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MZPopView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MZPopView_Example/Pods-MZPopView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E65BA98D1B80E7746D726634 /* Pods-MZPopView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MZPopView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MZPopView_Example/Pods-MZPopView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F474667D1CF67F4200771C33 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F48567341CF6A3B7008BB590 /* CGRectInsetOffsetTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CGRectInsetOffsetTest.playground; sourceTree = "<group>"; };
 		FEAEE0D5BFE01BA05952D203 /* Pods-MZPopView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MZPopView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MZPopView_Tests/Pods-MZPopView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +139,7 @@
 				6003F5A5195388D20070C39A /* MZViewController.h */,
 				6003F5A6195388D20070C39A /* MZViewController.m */,
 				F474667D1CF67F4200771C33 /* Launch Screen.storyboard */,
+				F48567341CF6A3B7008BB590 /* CGRectInsetOffsetTest.playground */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
