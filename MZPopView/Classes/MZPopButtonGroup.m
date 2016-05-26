@@ -42,7 +42,10 @@ static CGFloat buttonSpace = 8.0;
         CGFloat buttonWidth = buttonTitleSize.width;
         CGFloat buttonHeight = buttonTitleSize.height;
         if (!obj.imageView.hidden) {
-            buttonWidth += obj.imageView.image.size.width;
+            CGFloat iconTitleSpace = 3.5;
+            buttonWidth += obj.imageView.image.size.width + iconTitleSpace;
+            obj.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, iconTitleSpace);
+            obj.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -iconTitleSpace);
             obj.imageView.contentMode = UIViewContentModeScaleAspectFit;
         }
         obj.frame = CGRectMake(width, 0, buttonWidth, buttonHeight);
@@ -51,6 +54,7 @@ static CGFloat buttonSpace = 8.0;
             line.backgroundColor = self.separateLineColor.CGColor;
             line.frame = CGRectMake(width + buttonWidth + (buttonSpace - self.separateLineWidth) / 2 , 0, self.separateLineWidth, buttonHeight);
             [self.contentView.layer addSublayer:line];
+            [self.separators addObject:line];
         }
         height = buttonHeight;
         width += (idx == (self.buttons.count - 1)? buttonWidth: buttonWidth + buttonSpace);
@@ -84,5 +88,15 @@ static CGFloat buttonSpace = 8.0;
     }
     _buttons = buttons;
     [self rearrange];
+}
+
+- (void)setSeparateLineColor:(UIColor *)separateLineColor
+{
+    _separateLineColor = _separateLineColor;
+    if (_separators) {
+        for (CALayer *line in _separators) {
+            line.backgroundColor = _separateLineColor.CGColor;
+        }
+    }
 }
 @end

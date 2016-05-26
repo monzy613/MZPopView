@@ -68,13 +68,11 @@
 
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [firstButton setTitle:@"chat" forState:UIControlStateNormal];
-    //firstButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [firstButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
     [firstButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
     UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    [secondButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
-//    secondButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [secondButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     [secondButton setTitle:@"camera" forState:UIControlStateNormal];
     [secondButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
