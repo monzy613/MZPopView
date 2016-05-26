@@ -13,7 +13,13 @@
 
 @interface MZViewController ()
 
-@property (nonatomic, strong) MZPopButtonGroup *popView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UIView *ball;
+
+@property (nonatomic, strong) MZPopView *selectedPopView;
+@property (nonatomic, strong) MZPopView *popView;
+@property (nonatomic, strong) MZPopLabel *popLabel;
+@property (nonatomic, strong) MZPopButtonGroup *popButtonGroup;
 
 @end
 
@@ -23,97 +29,120 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.popView = [[MZPopButtonGroup alloc] initWithFrame:CGRectMake(50, 100, 100, 50)];
-    self.popView.color = [UIColor yellowColor];
-
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    leftBtn.frame = CGRectMake(200, 240, 100, 50);
-    [leftBtn setTitle:@"pop left" forState:UIControlStateNormal];
-    [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(popLeft:) forControlEvents:UIControlEventTouchUpInside];
-    leftBtn.backgroundColor = [UIColor blackColor];
-
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    rightBtn.frame = CGRectMake(200, 300, 100, 50);
-    [rightBtn setTitle:@"pop right" forState:UIControlStateNormal];
-    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(popRight:) forControlEvents:UIControlEventTouchUpInside];
-    rightBtn.backgroundColor = [UIColor blackColor];
-
-    UIButton *upBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    upBtn.frame = CGRectMake(200, 360, 100, 50);
-    [upBtn setTitle:@"pop up" forState:UIControlStateNormal];
-    [upBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [upBtn addTarget:self action:@selector(popUp:) forControlEvents:UIControlEventTouchUpInside];
-    upBtn.backgroundColor = [UIColor blackColor];
-
-    UIButton *downBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    downBtn.frame = CGRectMake(200, 420, 100, 50);
-    [downBtn setTitle:@"pop down" forState:UIControlStateNormal];
-    [downBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [downBtn addTarget:self action:@selector(popDown:) forControlEvents:UIControlEventTouchUpInside];
-    downBtn.backgroundColor = [UIColor blackColor];
-
-    UIButton *dismissBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    dismissBtn.frame = CGRectMake(200, 480, 100, 50);
-    [dismissBtn setTitle:@"pop back" forState:UIControlStateNormal];
-    [dismissBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [dismissBtn addTarget:self action:@selector(popBack:) forControlEvents:UIControlEventTouchUpInside];
-    dismissBtn.backgroundColor = [UIColor magentaColor];
-
-    UIView *ball = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    ball.backgroundColor = [UIColor redColor];
-    ball.layer.cornerRadius = 10.0;
-    ball.center = CGPointMake(100, 100);
-
-    UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [firstButton setTitle:@"chat" forState:UIControlStateNormal];
-    [firstButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
-    [firstButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
-    UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [secondButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
-    [secondButton setTitle:@"camera" forState:UIControlStateNormal];
-    [secondButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
-    self.popView.buttons = @[firstButton, secondButton];
-
-    [self.view addSubview:ball];
+    self.ball.layer.cornerRadius = 10.0;
     [self.view addSubview:self.popView];
-    [self.view addSubview:leftBtn];
-    [self.view addSubview:rightBtn];
-    [self.view addSubview:upBtn];
-    [self.view addSubview:downBtn];
-    [self.view addSubview:dismissBtn];
+    [self.view addSubview:self.popLabel];
+    [self.view addSubview:self.popButtonGroup];
+    self.selectedPopView = self.popView;
 }
 
-- (void)popLeft:(id)sender
+
+#pragma mark - actions
+- (IBAction)segmentControlValueChanged:(id)sender {
+    [self dismissAll];
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
+            self.selectedPopView = self.popView;
+            break;
+        case 1:
+            self.selectedPopView = self.popLabel;
+            break;
+        case 2:
+            self.selectedPopView = self.popButtonGroup;
+            break;
+        default:
+            break;
+    }
+}
+
+
+- (IBAction)popLeft:(id)sender
 {
-    [self.popView popLeftFromPoint:CGPointMake(100, 100)];
-    //self.popView.label.text = @"pop left";
+    [self.selectedPopView popLeftFromPoint:self.ball.center];
+    if ([self.selectedPopView isKindOfClass:[MZPopLabel class]]) {
+        self.popLabel.label.text = @"pop left";
+    }
 }
 
-- (void)popRight:(id)sender
+- (IBAction)popRight:(id)sender
 {
-    [self.popView popRightFromPoint:CGPointMake(100, 100)];
-    //self.popView.label.text = @"pop right";
+    [self.selectedPopView popRightFromPoint:self.ball.center];
+    if ([self.selectedPopView isKindOfClass:[MZPopLabel class]]) {
+        self.popLabel.label.text = @"pop right";
+    }
 }
 
-- (void)popUp:(id)sender
+- (IBAction)popUp:(id)sender
 {
-    [self.popView popUpFromPoint:CGPointMake(100, 100)];
-    //self.popView.label.text = @"pop up";
+    [self.selectedPopView popUpFromPoint:self.ball.center];
+    if ([self.selectedPopView isKindOfClass:[MZPopLabel class]]) {
+        self.popLabel.label.text = @"pop up";
+    }
 }
 
-- (void)popDown:(id)sender
+- (IBAction)popDown:(id)sender
 {
-    [self.popView popDownFromPoint:CGPointMake(100, 100)];
-    //self.popView.label.text = @"pop down";
+    [self.selectedPopView popDownFromPoint:self.ball.center];
+    if ([self.selectedPopView isKindOfClass:[MZPopLabel class]]) {
+        self.popLabel.label.text = @"pop down";
+    }
 }
 
-- (void)popBack:(id)sender
+- (IBAction)popBack:(id)sender
+{
+    [self.selectedPopView popBack];
+}
+
+#pragma mark - private -
+- (void)dismissAll
 {
     [self.popView popBack];
+    [self.popLabel popBack];
+    [self.popButtonGroup popBack];
 }
 
+#pragma mark - getters
+- (MZPopView *)popView
+{
+    if (!_popView) {
+        _popView = [[MZPopView alloc] initWithFrame:CGRectMake(50, 100, 100, 50)];
+        _popView.color = [UIColor yellowColor];
+    }
+    return _popView;
+}
+
+- (MZPopLabel *)popLabel
+{
+    if (!_popLabel) {
+        _popLabel = [[MZPopLabel alloc] init];
+        _popLabel.color = [UIColor redColor];
+        _popLabel.label.textColor = [UIColor whiteColor];
+    }
+    return _popLabel;
+}
+
+- (MZPopButtonGroup *)popButtonGroup
+{
+    if (!_popButtonGroup) {
+        _popButtonGroup = [[MZPopButtonGroup alloc] init];
+        _popButtonGroup.topPad = 8.0;
+        _popButtonGroup.color = [UIColor magentaColor];
+        _popButtonGroup.hasSeparateLine = YES;
+        _popButtonGroup.separateLineColor = [UIColor whiteColor];
+
+        UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [firstButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
+        [firstButton setTitle:@"chat" forState:UIControlStateNormal];
+        [firstButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [firstButton setTintColor:[UIColor whiteColor]];
+
+        UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [secondButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+        [secondButton setTitle:@"camera" forState:UIControlStateNormal];
+        [secondButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [secondButton setTintColor:[UIColor whiteColor]];
+        _popButtonGroup.buttons = @[firstButton, secondButton];
+    }
+    return _popButtonGroup;
+}
 @end

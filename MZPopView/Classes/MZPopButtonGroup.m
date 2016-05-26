@@ -92,7 +92,7 @@ static CGFloat buttonSpace = 8.0;
 
 - (void)setSeparateLineColor:(UIColor *)separateLineColor
 {
-    _separateLineColor = _separateLineColor;
+    _separateLineColor = separateLineColor;
     if (_separators) {
         for (CALayer *line in _separators) {
             line.backgroundColor = _separateLineColor.CGColor;
