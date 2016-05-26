@@ -1,0 +1,16 @@
+PODS:
+  - MZPopView (0.1.0)
+
+DEPENDENCIES:
+  - MZPopView (from `../`)
+
+EXTERNAL SOURCES:
+  MZPopView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MZPopView: 7b55ad2b24080b073b67f588bdce6e9e69870a15
+
+PODFILE CHECKSUM: 79f0885e9ba2ea4688b1ed6fc94b863eb2271c5b
+
+COCOAPODS: 1.0.0

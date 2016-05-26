@@ -1,0 +1,6 @@
+framework module MZPopView {
+  umbrella header "MZPopView-umbrella.h"
+
+  export *
+  module * { export * }
+}
