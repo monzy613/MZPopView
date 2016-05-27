@@ -21,6 +21,8 @@
 		A5A733AB38D3B4E88748B6ADA578A219 /* MZPopLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = C67F8138E1EB0A6120C5D8BFDE763F1B /* MZPopLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8C9319140CC21F3F9060F9DF467A86C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		DA0D0A9F4FCFBB2759A9CBD812CF7F29 /* MZPopView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE63696568BCEED0C49DAC08E34E2B1B /* MZPopView-dummy.m */; };
+		F4BF60941CF889710054127F /* CATransaction+noImplicit.h in Headers */ = {isa = PBXBuildFile; fileRef = F4BF60921CF889710054127F /* CATransaction+noImplicit.h */; };
+		F4BF60951CF889710054127F /* CATransaction+noImplicit.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BF60931CF889710054127F /* CATransaction+noImplicit.m */; };
 		FB0E7F427987B75CB431B8D6E797032E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,8 @@
 		F1EA93C83F73AEAA82A06D1DD83F74D8 /* MZPopView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MZPopView.m; sourceTree = "<group>"; };
 		F1F82FA5392D07606D85DC4DF266E0A4 /* Pods-MZPopView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MZPopView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F297062549547E648D1ECCB6B3B24F33 /* Pods-MZPopView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MZPopView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F4BF60921CF889710054127F /* CATransaction+noImplicit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransaction+noImplicit.h"; sourceTree = "<group>"; };
+		F4BF60931CF889710054127F /* CATransaction+noImplicit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransaction+noImplicit.m"; sourceTree = "<group>"; };
 		FA3D7419C60BB2C2631057E186963EE4 /* Pods-MZPopView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MZPopView_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		FCDF7DD82A8DEAE5C827496DD42200AE /* MZPopButtonGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MZPopButtonGroup.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +132,8 @@
 				EE63696568BCEED0C49DAC08E34E2B1B /* MZPopView-dummy.m */,
 				A63E85320C73A0A1FE63B66F5779EFEB /* MZPopView-prefix.pch */,
 				4C4FE0D44044DC4AA3C317C92E1A942A /* MZPopView-umbrella.h */,
+				F4BF60921CF889710054127F /* CATransaction+noImplicit.h */,
+				F4BF60931CF889710054127F /* CATransaction+noImplicit.m */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/MZPopView";
@@ -255,6 +261,7 @@
 				3C087612DBDB976A14CC5B60CCFD6F83 /* MZPopButtonGroup.h in Headers */,
 				A5A733AB38D3B4E88748B6ADA578A219 /* MZPopLabel.h in Headers */,
 				2A2A68F28E930FC6231AF293DDB82B81 /* MZPopView-umbrella.h in Headers */,
+				F4BF60941CF889710054127F /* CATransaction+noImplicit.h in Headers */,
 				6D3145DB5DF461D960CE6FA68598854D /* MZPopView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +381,7 @@
 				75C6F3A57B794DE28FB12C9A214FD299 /* MZPopButtonGroup.m in Sources */,
 				66831AFECDB44BE31EC74140659C7091 /* MZPopLabel.m in Sources */,
 				DA0D0A9F4FCFBB2759A9CBD812CF7F29 /* MZPopView-dummy.m in Sources */,
+				F4BF60951CF889710054127F /* CATransaction+noImplicit.m in Sources */,
 				6CA3412374A300FF91E6BBF516F9407C /* MZPopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

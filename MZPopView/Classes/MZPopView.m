@@ -7,6 +7,7 @@
 //
 
 #import "MZPopView.h"
+#import "CATransaction+noImplicit.h"
 
 #define defaultWidth 8.0;
 
@@ -34,12 +35,11 @@ static NSTimeInterval duration = 0.25;
         self.defaultInset = UIEdgeInsetsMake(5, 5, 5, 5);
         self.state = MZPopViewStateClosed;
         [self addSubview:self.contentView];
-        [self.layer addSublayer:self.leftArrow];
-        [self.layer addSublayer:self.rightArrow];
-        [self.layer addSublayer:self.upArrow];
-        [self.layer addSublayer:self.downArrow];
-        self.layer.shadowOpacity = 0.3;
-        self.layer.shadowOffset = CGSizeMake(0, 2);
+        __weak typeof(self) weakSelf = self;
+        [CATransaction noImplicitAnimationBlock:^{
+            weakSelf.layer.shadowOpacity = 0.3;
+            weakSelf.layer.shadowOffset = CGSizeMake(0, 2);
+        }];
         self.color = [UIColor magentaColor];
         self.alpha = 0.0;
         [self hideAllArrow];
@@ -58,6 +58,7 @@ static NSTimeInterval duration = 0.25;
 
 - (void)popLeftFromPoint:(CGPoint)point
 {
+    [self.layer addSublayer:self.rightArrow];
     self.state = MZPopViewStatePopLeft;
     self.alpha = 0.0;
     self.sourcePoint = point;
@@ -70,6 +71,7 @@ static NSTimeInterval duration = 0.25;
 
 - (void)popRightFromPoint:(CGPoint)point
 {
+    [self.layer addSublayer:self.leftArrow];
     self.state = MZPopViewStatePopRight;
     self.alpha = 0.0;
     self.sourcePoint = point;
@@ -82,6 +84,7 @@ static NSTimeInterval duration = 0.25;
 
 - (void)popUpFromPoint:(CGPoint)point
 {
+    [self.layer addSublayer:self.downArrow];
     self.state = MZPopViewStatePopUp;
     self.alpha = 0.0;
     self.sourcePoint = point;
@@ -94,6 +97,7 @@ static NSTimeInterval duration = 0.25;
 
 - (void)popDownFromPoint:(CGPoint)point
 {
+    [self.layer addSublayer:self.upArrow];
     self.state = MZPopViewStatePopDown;
     self.alpha = 0.0;
     self.sourcePoint = point;
@@ -152,7 +156,9 @@ static NSTimeInterval duration = 0.25;
 - (void)showArrow:(CAShapeLayer *)arrow newFrame:(CGRect)frame
 {
     [self hideAllArrow];
-    arrow.hidden = NO;
+    [CATransaction noImplicitAnimationBlock:^{
+        arrow.hidden = NO;
+    }];
     [UIView animateWithDuration:duration animations:^{
         self.frame = frame;
         self.alpha = 1.0;
@@ -161,32 +167,38 @@ static NSTimeInterval duration = 0.25;
 
 - (void)hideAllArrow
 {
-    self.leftArrow.hidden = YES;
-    self.rightArrow.hidden = YES;
-    self.upArrow.hidden = YES;
-    self.downArrow.hidden = YES;
+    __weak typeof(self) weakSelf = self;
+    [CATransaction noImplicitAnimationBlock:^{
+        weakSelf.leftArrow.hidden = YES;
+        weakSelf.rightArrow.hidden = YES;
+        weakSelf.upArrow.hidden = YES;
+        weakSelf.downArrow.hidden = YES;
+    }];
 }
 
 - (void)resetArrowPosition
 {
-    {//left right
-        CGFloat height = defaultWidth;
-        CGFloat width = self.defaultInset.left;
+    __weak typeof(self) weakSelf = self;
+    [CATransaction noImplicitAnimationBlock:^{
+        {//left right
+            CGFloat height = defaultWidth;
+            CGFloat width = self.defaultInset.left;
 
-        CGRect lFrame = CGRectMake(0, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
-        _leftArrow.frame = lFrame;
-        CGRect rFrame = CGRectMake(CGRectGetWidth(self.frame) - width, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
-        _rightArrow.frame = rFrame;
-    }
-    {//up down
-        CGFloat height = self.defaultInset.top;
-        CGFloat width = defaultWidth;
+            CGRect lFrame = CGRectMake(0, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
+            _leftArrow.frame = lFrame;
+            CGRect rFrame = CGRectMake(CGRectGetWidth(self.frame) - width, CGRectGetHeight(self.frame) / 2 - height / 2, width, height);
+            _rightArrow.frame = rFrame;
+        }
+        {//up down
+            CGFloat height = self.defaultInset.top;
+            CGFloat width = defaultWidth;
 
-        CGRect uFrame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, 0, width, height);
-        _upArrow.frame = uFrame;
-        CGRect dFrame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) - height, width, height);
-        _downArrow.frame = dFrame;
-    }
+            CGRect uFrame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, 0, width, height);
+            _upArrow.frame = uFrame;
+            CGRect dFrame = CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) - height, width, height);
+            _downArrow.frame = dFrame;
+        }
+    }];
 }
 
 - (void)resetFrame
