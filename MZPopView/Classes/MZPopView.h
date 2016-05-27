@@ -16,6 +16,12 @@ typedef NS_ENUM(NSInteger, MZPopViewState) {
     MZPopViewStatePopDown = 4
 };
 
+@interface CATransaction (noImplicit)
+
++ (void)noImplicitAnimationBlock:(void(^)())block;
+
+@end
+
 @interface MZPopView : UIView
 
 @property (nonatomic, assign) UIEdgeInsets inset;

@@ -7,12 +7,25 @@
 //
 
 #import "MZPopView.h"
-#import "CATransaction+noImplicit.h"
 
 #define defaultWidth 8.0;
 
 static CGFloat offset = 5.0;
 static NSTimeInterval duration = 0.25;
+
+@implementation CATransaction (noImplicit)
+
++ (void)noImplicitAnimationBlock:(void(^)())block
+{
+    if (block) {
+        BOOL beforeDisableActions = CATransaction.disableActions;
+        [CATransaction setDisableActions:YES];
+        block();
+        [CATransaction setDisableActions:beforeDisableActions];
+    }
+}
+
+@end
 
 @interface MZPopView ()
 
@@ -178,7 +191,6 @@ static NSTimeInterval duration = 0.25;
 
 - (void)resetArrowPosition
 {
-    __weak typeof(self) weakSelf = self;
     [CATransaction noImplicitAnimationBlock:^{
         {//left right
             CGFloat height = defaultWidth;
